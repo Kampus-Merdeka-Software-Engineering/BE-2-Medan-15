@@ -1,13 +1,15 @@
 const express = require('express');
-const Registration = require('../model/user');
+const signup = express.Router();
+const login = express.Router();
+const user = require('../model/user');
 
-//registrasi
-async function signup(req, res) {
+// registrasi
+signup.post('/signup', async (req, res) => {
     try {
-        const registration = await Registration.create(req.body);
+        const user = await user.create(req.body);
         res.json({
             success: true,
-            registration
+            user
         });
     } catch (err) {
         res.status(500).json({
@@ -15,21 +17,19 @@ async function signup(req, res) {
             error: err.message
         });
     }
-}
+});
 
-
-// login
-async function login(req, res) {
-    const user = await Registration.findOne({
+login.post('/', async function(req, res) {
+    const user = await user.findOne({
         where: {
-            user_name: req.body.user_name,
+            email: req.body.email,
             password: req.body.password
         }
     })
     res.status(200).json({
         data: user
     })
-}
+});
 
 module.exports = {
     signup,
