@@ -5,11 +5,12 @@ const sequelize = require('sequelize')
 const registration = dbConnection.define("registration", {
     id: {
         type: sequelize.DataTypes.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement : true
     },
     user_name: {
         type: sequelize.DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     email: {
         type: sequelize.DataTypes.STRING,
@@ -24,9 +25,9 @@ const registration = dbConnection.define("registration", {
     timestamps: false
 });
 
-// (async () => {
-//     await registration.sync()
-// })()
+(async () => {
+    await registration.sync()
+})()
 
 
 module.exports = registration;
