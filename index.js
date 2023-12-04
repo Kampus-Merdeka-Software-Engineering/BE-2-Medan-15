@@ -5,6 +5,7 @@ const path = require('path');
 // products router
 const dbConnection = require('./model/dbConnection');
 const userRouter = require('./routes/signup');
+// const loginRouter = require('./routes/login');
 
 app.use(express.static('static'));
 app.use(express.urlencoded({
@@ -15,6 +16,7 @@ const formidableMiddleware = require('express-formidable');
 
 // gunakan middleware formidable pada aplikasi express Anda
 app.use(formidableMiddleware());
+
 // // Konfigurasi koneksi ke database MySQL
 // const dbConnection = new sequelize('signup_db', 'root', 'Aleram123', {
 //     host: 'localhost',
@@ -32,12 +34,12 @@ app.use(formidableMiddleware());
 
 app.use(express.json());
 app.use(cors());
-app.use('/registration', userRouter.registration);
+app.use('/registration', userRouter.signup);
 app.use('/login', userRouter.login);
 
-const port = process.env.PORT || 2000;
-app.listen(port, "0.0.0.0", () => {
-   console.log('App listening on port 5001');
+const port = 3306;
+app.listen(port, () => {
+   console.log('App listening on port 3306');
    dbConnection.authenticate().then(() => {
      console.log('database terhubung')
    }).catch((err) => {
