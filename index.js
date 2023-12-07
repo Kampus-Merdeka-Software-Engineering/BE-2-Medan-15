@@ -12,10 +12,10 @@ app.use(express.urlencoded({
    extended: false
 }));
 
-const formidableMiddleware = require('express-formidable');
+// const formidableMiddleware = require('express-formidable');
 
 // gunakan middleware formidable pada aplikasi express Anda
-app.use(formidableMiddleware());
+// app.use(formidableMiddleware());
 
 // // Konfigurasi koneksi ke database MySQL
 // const dbConnection = new sequelize('signup_db', 'root', 'Aleram123', {
@@ -37,7 +37,7 @@ app.use(cors());
 app.use('/registration', userRouter.signup);
 app.use('/login', userRouter.login);
 
-const port = 3306;
+const port = 3309;
 app.listen(port, () => {
    console.log('App listening on port 3306');
    dbConnection.authenticate().then(() => {
