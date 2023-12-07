@@ -1,12 +1,12 @@
 const express = require('express');
 const signup = express.Router();
 const login = express.Router();
-const user = require('../model/user');
+const userModel = require('../model/user');
 
 // registrasi
 signup.post('/signup', async (req, res) => {
     try {
-        const user = await user.create(req.body);
+        const user = await userModel.create(req.body);
         res.json({
             success: true,
             user
