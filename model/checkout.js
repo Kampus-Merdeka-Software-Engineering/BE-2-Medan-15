@@ -9,37 +9,29 @@ const checkOut = dbConection.define("checkout", {
     },
     email: {
         type: sequelize.DataTypes.STRING,
-    firstname: {
+    nama_depan: {
         type: sequelize.DataTypes.STRING
     },
-    lastname: {
+    nama_belakang: {
         type: sequelize.DataTypes.STRING
     },
-    phone: {
+    nomor_telepon: {
         type: sequelize.DataTypes.STRING
     },
-    productName: {
+    jenis_kamar: {
         type: sequelize.DataTypes.STRING
     },
-    productPrice: {
+    jumlah_kamar: {
         type: sequelize.DataTypes.STRING
     },
-    quantity: {
-        type: sequelize.DataTypes.STRING
-    },
-    checkIn: {
+    Checkin: {
         type: sequelize.DataTypes.DATE
     },
-    checkOut: {
+    checkout: {
         type: sequelize.DataTypes.DATE
     },
 }}, {
     freezeTableName: true,
     timestamps: false
 });
-
-(async () => {
-    await checkOut.sync()
-})()
-
 module.exports = checkOut;
