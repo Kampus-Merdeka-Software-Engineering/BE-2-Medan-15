@@ -9,6 +9,7 @@ const checkOut = dbConection.define("checkout", {
         autoIncrement : true
     },
     email: {
+<<<<<<< HEAD
         type: sequelize.DataTypes.STRING
     },
     firstName: {
@@ -26,6 +27,24 @@ const checkOut = dbConection.define("checkout", {
     productPrice: {
         type: sequelize.DataTypes.STRING
     },
+=======
+        type: sequelize.DataTypes.STRING,
+    firstname: {
+        type: sequelize.DataTypes.STRING
+    },
+    lastname: {
+        type: sequelize.DataTypes.STRING
+    },
+    phone: {
+        type: sequelize.DataTypes.STRING
+    },
+    productName: {
+        type: sequelize.DataTypes.STRING
+    },
+    productPrice: {
+        type: sequelize.DataTypes.STRING
+    },
+>>>>>>> a848f6adc258a50d4790bbc761618a237159b41e
     quantity: {
         type: sequelize.DataTypes.STRING
     },
