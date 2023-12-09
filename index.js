@@ -5,11 +5,8 @@ const path = require('path');
 // products router
 const dbConnection = require('./model/dbConnection');
 const userRouter = require('./routes/signup');
-<<<<<<< HEAD
 const loginRouter = require('./routes/login');
 const checkOUT = require('./routes/CheckOut')
-=======
->>>>>>> a848f6adc258a50d4790bbc761618a237159b41e
 // const loginRouter = require('./routes/login');
 
 app.use(express.static('static'));
