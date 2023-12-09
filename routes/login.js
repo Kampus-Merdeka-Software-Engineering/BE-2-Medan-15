@@ -1,8 +1,8 @@
 const express = require('express');
-const router = express.Router();
+const login = express.Router();
 const registration = require('../model/user');
 
-router.post('/', async function(req, res) {
+login.post('/', async function(req, res) {
     const user = await registration.findOne({
         where: {
             email: req.body.email,
@@ -14,4 +14,4 @@ router.post('/', async function(req, res) {
     })
 });
 
-module.exports = router;
+module.exports = login;

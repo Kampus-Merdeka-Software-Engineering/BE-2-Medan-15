@@ -5,6 +5,7 @@ const path = require('path');
 // products router
 const dbConnection = require('./model/dbConnection');
 const userRouter = require('./routes/signup');
+const loginRouter = require('./routes/login');
 const checkOUT = require('./routes/CheckOut')
 // const loginRouter = require('./routes/login');
 app.use(cors())
@@ -38,7 +39,7 @@ app.use(express.json());
 app.use(cors());
 app.use('/checkOut', checkOUT);
 app.use('/registration', userRouter.signup);
-app.use('/login', userRouter.login);
+app.use('/login', loginRouter);
 
 const port = 3000;
 app.listen(port, () => {
