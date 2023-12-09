@@ -1,20 +1,21 @@
 const express = require('express');
 const Checkout = require('../model/checkout');
+const router = express.Router();
 
-async function checkout(req, res) {
- console.log(req.body);
+router.post('/', async (req,res) => {
+  console.log(req.body);
   try {
     const checkout = await Checkout.create(req.body);
     res.json({
-      success: true,
-      checkout
+        success: true,
+        checkout
     });
-  } catch (err) {
+} catch (err) {
     res.status(500).json({
-      success: false,
-      error: err.message
+        success: false,
+        error: err.message
     });
-  }
 }
+})
 
-module.exports = checkout;
+module.exports = router;
