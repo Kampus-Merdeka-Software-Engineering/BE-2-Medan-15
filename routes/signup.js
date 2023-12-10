@@ -1,15 +1,14 @@
 const express = require('express');
-const signup = express.Router();
-const login = express.Router();
-const userModel = require('../model/user');
+const router = express.Router();
+const user = require('../model/user');
 
 // registrasi
-signup.post('/signup', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
-        const user = await userModel.create(req.body);
+        const newUser = await user.create(req.body);
         res.json({
             success: true,
-            user
+            user: newUser
         });
     } catch (err) {
         res.status(500).json({
@@ -19,8 +18,4 @@ signup.post('/signup', async (req, res) => {
     }
 });
 
-
-
-module.exports = {
-    signup,
-};
+module.exports = router;
