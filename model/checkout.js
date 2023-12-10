@@ -5,7 +5,8 @@ const sequelize = require('sequelize');
 const checkOut = dbConection.define("checkout", {
     id: {
         type: sequelize.DataTypes.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement : true
     },
     email: {
         type: sequelize.DataTypes.STRING,
