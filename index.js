@@ -5,11 +5,13 @@ const path = require('path');
 // MENGAMBIL DARI DATABASE INFO DI DBCONNECTION
 const dbConnection = require('./model/dbConnection');
 const userRouter = require('./routes/signup');
+const checkOUT = require('./routes/CheckOut')
 
 app.use(express.static('static'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
+app.use('/checkOut', checkOUT);
 app.use('/registration', userRouter); // Gunakan router secara langsung
 app.use('/login', userRouter); // Gunakan router secara langsung
 
