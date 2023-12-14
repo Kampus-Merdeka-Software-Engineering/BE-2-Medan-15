@@ -6,6 +6,8 @@ const path = require('path');
 const dbConnection = require('./model/dbConnection');
 const userRouter = require('./routes/signup');
 const checkOUT = require('./routes/CheckOut')
+const testconnectionController = require('./routes/tesconnection');
+
 
 app.use(express.static('static'));
 app.use(express.urlencoded({ extended: false }));
@@ -14,6 +16,7 @@ app.use(cors());
 app.use('/checkOut', checkOUT);
 app.use('/registration', userRouter); // Gunakan router secara langsung
 app.use('/login', userRouter); // Gunakan router secara langsung
+app.use('/testconnection', testconnectionController.getTestconnection);
 
 // const formidableMiddleware = require('express-formidable');
 // gunakan middleware formidable pada aplikasi express Anda
