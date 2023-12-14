@@ -18,7 +18,7 @@ app.use('/login', userRouter); // Gunakan router secara langsung
 // app.use(formidableMiddleware());
 
 // UNTUK MENGUJI DENGAN TRY CATCH APAKAH SUDAH TERHUBUNG ATAU TIDAK KE DB
-const port = 3000;
+const port = process.env.DB_PORT || 3000;
 app.listen(port, () => {
     console.log('App listening on port 3000');
     dbConnection.authenticate().then(() => {
